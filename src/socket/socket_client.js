@@ -53,6 +53,23 @@ class SocketClient {
     this.status = 0
   }
 
+  reconnect() {
+    this.client.close()
+
+    switch (this.protocol) {
+      case 'tcp':
+      case 'tls':
+      case 'ssl':
+        this.client = new TCPSocketClient(this, this.host, this.port, this.protocol, this.options)
+        break
+      case 'ws':
+      case 'wss':
+        this.client = new WebSocketClient(this, this.host, this.port, this.protocol, this.options)
+        break
+      default:
+        throw new Error(`invalid protocol: [${protocol}]`)
+  }
+
   response(msg) {
     const callback = this.callback_message_queue[msg.id]
 

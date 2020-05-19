@@ -101,14 +101,14 @@ class ElectrumClient extends SocketClient {
     clearInterval(this.keepAliveHandle)
 
     // TODO: Refactor persistency
-    // if (this.persistencePolicy) {
-    //   if (this.persistencePolicy.maxRetry > 0) {
-    //     this.reconnect();
-    //     this.persistencePolicy.maxRetry -= 1;
-    //   } else if (this.persistencePolicy.callback != null) {
-    //     this.persistencePolicy.callback();
-    //   }
-    // }
+    if (this.persistencePolicy) {
+      if (this.persistencePolicy.maxRetry > 0) {
+        this.reconnect();
+        this.persistencePolicy.maxRetry -= 1;
+      } else if (this.persistencePolicy.callback != null) {
+        this.persistencePolicy.callback();
+      }
+    }
   }
 
   // TODO: Refactor persistency

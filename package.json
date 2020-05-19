@@ -9,6 +9,8 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "net-browserify": "^0.2.4",
+    "tls-browserify": "^0.2.2",
     "websocket": "^1.0.29"
   },
   "devDependencies": {

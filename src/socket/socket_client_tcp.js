@@ -1,5 +1,5 @@
 'use strict'
-const net = require('net')
+const net = require('net-browserify')
 
 const TIMEOUT = 10000
 
@@ -14,7 +14,7 @@ class SocketClient {
       case 'ssl':
         let tls
         try {
-          tls = require('tls')
+          tls = require('tls-browserify')
         } catch (e) {
           throw new Error('tls package could not be loaded')
         }

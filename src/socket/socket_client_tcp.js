@@ -8,7 +8,7 @@ class SocketClient {
     let conn
     switch (protocol) {
       case 'tcp':
-        conn = new net()
+        conn = net.Socket()
         break
       case 'tls':
       case 'ssl':

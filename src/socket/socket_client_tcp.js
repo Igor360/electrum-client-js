@@ -8,17 +8,18 @@ class SocketClient {
     let conn
     switch (protocol) {
       case 'tcp':
-        conn = new net.Socket()
+        conn = new net()
         break
       case 'tls':
       case 'ssl':
         let tls
         try {
-          tls = require('tls-browserify')
+          tls = require('./socket_tls')
         } catch (e) {
+          console.log(e)
           throw new Error('tls package could not be loaded')
         }
-        conn = new tls.TLSSocket(options)
+        conn = new tls.TLSSocket.default(options)
         break
       default:
         throw new Error('not supported protocol', protocol)

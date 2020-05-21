@@ -9,7 +9,10 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "assert": "^2.0.0",
     "net-browserify": "^0.2.4",
+    "node-forge": "^0.9.1",
+    "stream": "0.0.2",
     "tls-browserify": "^0.2.2",
     "websocket": "^1.0.29"
   },

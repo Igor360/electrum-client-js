@@ -19,7 +19,7 @@ class SocketClient {
           console.log(e)
           throw new Error('tls package could not be loaded')
         }
-        conn = new tls.TLSSocket.default(options)
+        conn = new tls.TLSSocket(options)
         break
       default:
         throw new Error('not supported protocol', protocol)
